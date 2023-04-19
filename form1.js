@@ -3,6 +3,7 @@ window.history.pushState({},"","/index.html")
 const loginForm=document.getElementById('loginForm')
 const fullName=document.getElementById('full-name')
 const signUpForm=document.getElementById('regForm')
+const actualForm=document.getElementById('actualForm')
 const submitBtn=document.getElementById('submitBtn')
 
 let page=0;
@@ -10,9 +11,8 @@ console.log(window.location.pathname)
 render()
 submitBtn.addEventListener('click',submitHandler);
 function submitHandler(event){
+   if(!actualForm.checkValidity()) return;
     event.preventDefault();
-    // signUpForm.checkValidity()
-    // signUpForm.reportValidity()
     obj={
         name:fullName.value
     }
